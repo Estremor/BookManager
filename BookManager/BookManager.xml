@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookManager</name>
+    </assembly>
+    <members>
+        <member name="T:BookManager.Application.AuthorAppService">
+            <summary>
+            Implementa el contrato de author
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.AuthorAppService._authorServ">
+            <summary>
+            Servicio de dominio de author
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.AuthorAppService._mapper">
+            <summary>
+            Authommaper
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.#ctor(BookManager.Domain.Services.Contracts.IAuthorDomainService,AutoMapper.IMapper)">
+            <summary>
+            Inicia una instancia de la clase
+            </summary>
+            <param name="authorServ"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.Create(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Crea un autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.Delete(System.Int32)">
+            <summary>
+            Elimina un autor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.Get(System.Int32)">
+            <summary>
+            Obtiene uno
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.Update(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Application.BookAppService">
+            <summary>
+            Implementacion de servicio de aplicacion de book
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.BookAppService._bookDomainServ">
+            <summary>
+            Servicio de dominio de book
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.BookAppService._mapper">
+            <summary>
+            Autommaper
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.#ctor(BookManager.Domain.Services.Contracts.IBookDomainService,AutoMapper.IMapper)">
+            <summary>
+            Inicia una nueva instancia de la clase
+            </summary>
+            <param name="bookDomainServ"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.Create(BookManager.DTOs.BookDTO)">
+            <summary>
+            Crea uno nuevo
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.Delete(System.Int32)">
+            <summary>
+            Elimina un registro
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.Get(System.Int32)">
+            <summary>
+            Busca uno
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.ListBooks">
+            <summary>
+            Lista todo con dependencias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.Update(BookManager.DTOs.BookDTO)">
+            <summary>
+            Actualiza
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Application.CategoryAppService">
+            <summary>
+            Implementacion de servicio de aplicacion category
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.CategoryAppService._categoryServe">
+            <summary>
+            Servicio de dominio de category
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.CategoryAppService._repository">
+            <summary>
+            Repositori Generico de category
+            </summary>
+        </member>
+        <member name="F:BookManager.Application.CategoryAppService._mapper">
+            <summary>
+            Autompper
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.#ctor(BookManager.Domain.Services.Contracts.ICategoryDomainService,BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Category},AutoMapper.IMapper)">
+            <summary>
+            Inicia una nueva instancia de la clase
+            </summary>
+            <param name="categoryServe"></param>
+            <param name="repository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.Create(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Crea una categoria
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.Delete(System.Int32)">
+            <summary>
+            Elimina una categoria
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.Get(System.Int32)">
+            <summary>
+            Obtiene uno
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.List">
+            <summary>
+            Lista
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.CategoryAppService.Update(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Actualiza
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Application.Contracts.IAuthorAppService">
+            <summary>
+            Servicio de aplicacion de Author
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IAuthorAppService.Create(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Crea un nuevo autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IAuthorAppService.Update(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IAuthorAppService.Delete(System.Int32)">
+            <summary>
+            Elimina un autor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IAuthorAppService.Get(System.Int32)">
+            <summary>
+            Obtiene un autor por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Application.Contracts.IBookAppService">
+            <summary>
+            Servicio de aplicacion de libro
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.Create(BookManager.DTOs.BookDTO)">
+            <summary>
+            Crea un nuevo Book
+            </summary>
+            <param name="Book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.Update(BookManager.DTOs.BookDTO)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="Book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.Delete(System.Int32)">
+            <summary>
+            Elimina un Book
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.Get(System.Int32)">
+            <summary>
+            Obtiene un Book por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.ListBooks">
+            <summary>
+            Lista Libros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Application.Contracts.ICategoryAppService">
+            <summary>
+            Contrato servicio de aplicacion de Category
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.Contracts.ICategoryAppService.Create(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Crea un nuevo category
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.ICategoryAppService.Update(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.ICategoryAppService.Delete(System.Int32)">
+            <summary>
+            Elimina un category
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.ICategoryAppService.Get(System.Int32)">
+            <summary>
+            Obtiene un category por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.ICategoryAppService.List">
+            <summary>
+            Lista Todas las Categorias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Automapper.AutoMapperProfile">
+            <summary>
+            Configuracion de meppers
+            </summary>
+        </member>
+        <member name="M:BookManager.Automapper.AutoMapperProfile.#ctor">
+            <summary>
+            Crea la configuracion
+            </summary>
+        </member>
+        <member name="T:BookManager.Controllers.AuthorController">
+            <summary>
+            Servicios de author
+            </summary>
+        </member>
+        <member name="F:BookManager.Controllers.AuthorController._authorAppServ">
+            <summary>
+            Servicio de aplicacion de Author
+            </summary>
+        </member>
+        <member name="M:BookManager.Controllers.AuthorController.#ctor(BookManager.Application.Contracts.IAuthorAppService)">
+            <summary>
+            Inicia una nueva instancia
+            </summary>
+            <param name="authorAppServ"></param>
+        </member>
+        <member name="M:BookManager.Controllers.AuthorController.Create(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Crea un Registro con un author
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.AuthorController.Update(BookManager.DTOs.AuthorDTO)">
+            <summary>
+            Actualiza Un author
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.AuthorController.Delete(System.Int32)">
+            <summary>
+            Elimina un registro author por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.AuthorController.Get(System.Int32)">
+            <summary>
+            Obtiene Uno por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Controllers.BookController">
+            <summary>
+            Servicio de book
+            </summary>
+        </member>
+        <member name="F:BookManager.Controllers.BookController._bookAppServ">
+            <summary>
+            Servicio de aplicacion de Book
+            </summary>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.#ctor(BookManager.Application.Contracts.IBookAppService)">
+            <summary>
+            Inicia una nueva instancia
+            </summary>
+            <param name="bookAppServ"></param>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.Create(BookManager.DTOs.BookDTO)">
+            <summary>
+            Crea un Registro con un book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.Update(BookManager.DTOs.BookDTO)">
+            <summary>
+            Actualiza Un book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.Delete(System.Int32)">
+            <summary>
+            Elimina un registro book por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.Get(System.Int32)">
+            <summary>
+            Obtiene Uno por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.BookController.List">
+            <summary>
+            Lista todos los books
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Controllers.CategoryController">
+            <summary>
+            servicios de category
+            </summary>
+        </member>
+        <member name="F:BookManager.Controllers.CategoryController._categoryAppServ">
+            <summary>
+            Servicio de aplicacion de category
+            </summary>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.#ctor(BookManager.Application.Contracts.ICategoryAppService)">
+            <summary>
+            Inicia una nueva instancia
+            </summary>
+            <param name="categoryAppServ"></param>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.Create(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Crea un Registro con una categoria
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.Update(BookManager.DTOs.CategoryDTO)">
+            <summary>
+            Actualiza Una categoria
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Elimina un registro categoria por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.Get(System.Int32)">
+            <summary>
+            Obtiene Uno por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Controllers.CategoryController.List">
+            <summary>
+            Lista todas las categorias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.DataPersistence.BookManagerDBContext">
+            <summary>
+            Contexto de datos
+            </summary>
+        </member>
+        <member name="P:BookManager.DataPersistence.BookManagerDBContext.DbSettings">
+            <summary>
+            Configuracion de conexion
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.BookManagerDBContext.#ctor(BookManager.DataPersistence.DbSettings)">
+            <summary>
+            Inicia el contexto de Datos
+            </summary>
+            <param name="dbSettings"></param>
+        </member>
+        <member name="M:BookManager.DataPersistence.BookManagerDBContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Se usa la configuracion 
+            </summary>
+            <param name="dbContextOptionsBuilder"></param>
+        </member>
+        <member name="M:BookManager.DataPersistence.BookManagerDBContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Aplica la configuracion
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:BookManager.DataPersistence.DbSettings">
+            <summary>
+            encapsula las propiedades de configuracion de una conexion a sql
+            </summary>
+        </member>
+        <member name="P:BookManager.DataPersistence.DbSettings.ConnectionString">
+            <summary>
+            Obtiene y asigna la cadena de conexion
+            </summary>
+        </member>
+        <member name="T:BookManager.DataPersistence.Configuratios.AuthorConfiguration">
+            <summary>
+            Clase de configuracion Author para el contexto BookManager
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Configuratios.AuthorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{BookManager.Domain.Entities.Author})">
+            <summary>
+            Inicaia la configuracion de Author
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:BookManager.DataPersistence.Configuratios.BookConfiguration">
+            <summary>
+            Clase de configuracion Book para el contexto BookManager
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Configuratios.BookConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{BookManager.Domain.Entities.Book})">
+            <summary>
+            Inicaia la configuracion de Book
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:BookManager.DataPersistence.Configuratios.CategoryConfiguration">
+            <summary>
+            Clase de configuracion Category para el contexto BookManager
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Configuratios.CategoryConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{BookManager.Domain.Entities.Category})">
+            <summary>
+            Inicaia la configuracion de Category
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:BookManager.DataPersistence.Repository.Generic.IRepository">
+            <summary>
+            Comportamiento de un repository
+            </summary>
+        </member>
+        <member name="P:BookManager.DataPersistence.Repository.Generic.IRepository.Context">
+            <summary>
+            Contexto de Datos
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository.Initialize(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Inicia el contexto de Datos
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:BookManager.DataPersistence.Repository.Generic.IRepository`1">
+            <summary>
+            define el comportamiento del repo
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:BookManager.DataPersistence.Repository.Generic.IRepository`1.Entity">
+            <summary>
+            Obtiene la entidad para dar acceso a el contexto
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository`1.Create(`0)">
+            <summary>
+            Inserta una nueva entidad en el repositorio de Datos
+            </summary>
+            <param name="entity">entidad que se va a crear</param>
+            <returns>Entidad insertada</returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository`1.Update(`0)">
+            <summary>
+            Actualiza una entidad 
+            </summary>
+            <param name="entity">Entidad a Actualizar</param>
+            <returns>entidad actualizada</returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository`1.Remove(`0)">
+            <summary>
+            Elimina una entidad
+            </summary>
+            <param name="entity">Entidad a eliminar</param>
+            <returns>Entidad que se elimino</returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository`1.List(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Lista todas las entidades o las que cumplan con la expresion
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository`1.SaveChanges">
+            <summary>
+            Confirma los cambios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.DataPersistence.Repository.Generic.Repository`1">
+            <summary>
+            Implementa el contrato
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:BookManager.DataPersistence.Repository.Generic.Repository`1.Entity">
+            <summary>
+            Entidad que da acceso a el contexto
+            </summary>
+        </member>
+        <member name="P:BookManager.DataPersistence.Repository.Generic.Repository`1.Context">
+            <summary>
+            Obtiene el contexto de datos
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Inicia el repo
+            </summary>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Initialize(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Inicia el repo con el contexto
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Create(`0)">
+            <summary>
+            Inserta La entidad (context)
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Update(`0)">
+            <summary>
+            Actualiza la entidad (context)
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Remove(`0)">
+            <summary>
+            var Elimina la entidad (context)
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.List(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Lista todas las entidades o las que cumplan con la expresion
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.SaveChanges">
+            <summary>
+            Confirma los Cambios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.DI.DependencyInjectionProfile">
+            <summary>
+            Contiene la Configuracion de la injeccion de dependencias
+            </summary>
+        </member>
+        <member name="M:BookManager.DI.DependencyInjectionProfile.RegisterProfile(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registra Las dependencias, como se resuelven
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:BookManager.Domain.Services.AuthorDomainService">
+            <summary>
+            Implementa la logica de dominio
+            </summary>
+        </member>
+        <member name="F:BookManager.Domain.Services.AuthorDomainService._authorRepo">
+            <summary>
+            Repositorio generico de Author
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.AuthorDomainService.#ctor(BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Author})">
+            <summary>
+            Inicia una nueva instancia de la clase
+            </summary>
+            <param name="authorRepo">repositorio de Author</param>
+        </member>
+        <member name="M:BookManager.Domain.Services.AuthorDomainService.Create(BookManager.Domain.Entities.Author)">
+            <summary>
+            Crea un nuevo author
+            </summary>
+            <param name="author"> object author a crear</param>
+            <returns>autor creado </returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.AuthorDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina el registro que filtre por el identificador
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.AuthorDomainService.Update(BookManager.Domain.Entities.Author)">
+            <summary>
+            Actualiza los datos de un author
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.AuthorDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene un autor por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Domain.Services.BookDomainService">
+            <summary>
+            Implementa Logica para Book
+            </summary>
+        </member>
+        <member name="F:BookManager.Domain.Services.BookDomainService._bookRepo">
+            <summary>
+            repositorio generico de Book
+            </summary>
+        </member>
+        <member name="F:BookManager.Domain.Services.BookDomainService._authorRepo">
+            <summary>
+            Generic Repo author
+            </summary>
+        </member>
+        <member name="F:BookManager.Domain.Services.BookDomainService._categoryRepo">
+            <summary>
+            Generic Repo Category
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.#ctor(BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Book},BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Author},BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Category})">
+            <summary>
+            Inicia una nueva Instancia de la clase
+            </summary>
+            <param name="bookRepo">book repo</param>
+            <param name="authorRepo">author repo</param>
+            <param name="categoryRepo"> category Repo</param>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.Create(BookManager.Domain.Entities.Book)">
+            <summary>s
+            Crea un nuevo Book
+            </summary>
+            <param name="book"> object Book a crear</param>
+            <returns>autor creado </returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina el registro que filtre por el identificador
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene un book por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.Update(BookManager.Domain.Entities.Book)">
+            <summary>
+            Actualiza un book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.ListBooks">
+            <summary>
+            Lista Los libros Con sus categorias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Domain.Services.CategoryDomainService">
+            <summary>
+            implementacion de lgica servicio de Category
+            </summary>
+        </member>
+        <member name="F:BookManager.Domain.Services.CategoryDomainService._categoryRepo">
+            <summary>
+            Repositorio Generico de categoria
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.CategoryDomainService.#ctor(BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Category})">
+            <summary>
+            Inicia una nueva instancia de la clase
+            </summary>
+            <param name="categoryRepo"></param>
+        </member>
+        <member name="M:BookManager.Domain.Services.CategoryDomainService.Create(BookManager.Domain.Entities.Category)">
+            <summary>
+            Crea un nuevo Category
+            </summary>
+            <param name="category"> object category a crear</param>
+            <returns>autor creado </returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.CategoryDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina el registro que filtre por el identificador
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.CategoryDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene una categoria por id
+            </summary>
+            <param name="id">isentificador </param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.CategoryDomainService.Update(BookManager.Domain.Entities.Category)">
+            <summary>
+            Actualiza los datos de un category
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Domain.Services.Contracts.IAuthorDomainService">
+            <summary>
+            Contrato servicio de dominio para Author
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IAuthorDomainService.Create(BookManager.Domain.Entities.Author)">
+            <summary>
+            Crea un nuevo autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IAuthorDomainService.Update(BookManager.Domain.Entities.Author)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IAuthorDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina un autor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IAuthorDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene un autor por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Domain.Services.Contracts.IBookDomainService">
+            <summary>
+            Contrato para servicio de dominio de libros
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.Create(BookManager.Domain.Entities.Book)">
+            <summary>
+            Crea un nuevo Book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.Update(BookManager.Domain.Entities.Book)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina un Book
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene un Book por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.ListBooks">
+            <summary>
+            Lista Libros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Domain.Services.Contracts.ICategoryDomainService">
+            <summary>
+            Contrato servicio de dominio para Category
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.ICategoryDomainService.Create(BookManager.Domain.Entities.Category)">
+            <summary>
+            Crea un nuevo category
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.ICategoryDomainService.Update(BookManager.Domain.Entities.Category)">
+            <summary>
+            Actualiza un autor
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.ICategoryDomainService.Delete(System.Int32)">
+            <summary>
+            Elimina un category
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.Contracts.ICategoryDomainService.Get(System.Int32)">
+            <summary>
+            Obtiene un category por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.DTOs.AuthorDTO">
+            <summary>
+            Encapsula los datos de un author
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.AuthorDTO.Identificador">
+            <summary>
+            Identificador unico del author
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.AuthorDTO.Nombre">
+            <summary>
+            Nombre del autor
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.AuthorDTO.Apellido">
+            <summary>
+            Apellido del author (opcional) => si se desconoce
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.AuthorDTO.FechaNacimiento">
+            <summary>
+            fecha de Nacimiento (opcional) => si se desconoce
+            </summary>
+        </member>
+        <member name="T:BookManager.DTOs.BookDTO">
+            <summary>
+            encapsula los datos de un libro
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDTO.Identificador">
+            <summary>
+            identificador Unico
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDTO.Nombre">
+            <summary>
+            Nombre para el libro
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDTO.Author">
+            <summary>
+            Autor del Libro
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDTO.Category">
+            <summary>
+            Categoria a la que pertenece
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDTO.Isbn">
+            <summary>
+            Codigo Unico del libro (13 caracteres maximo)
+            (no se actualiza por seguridad)
+            </summary>
+        </member>
+        <member name="T:BookManager.DTOs.CategoryDTO">
+            <summary>
+            Encapsula los Datos de una categoria
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.CategoryDTO.Identificador">
+            <summary>
+            identificador unico
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.CategoryDTO.Nombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.CategoryDTO.Descripcion">
+            <summary>
+            Descripcion
+            </summary>
+        </member>
+        <member name="T:BookManager.Startup">
+            <summary>
+            Configuration Class project
+            </summary>
+        </member>
+        <member name="P:BookManager.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BookManager.Startup._DbSetting">
+            <summary>
+            Propiedad Para binding
+            </summary>
+        </member>
+        <member name="M:BookManager.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Inicia la configuracion
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:BookManager.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BookManager.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
