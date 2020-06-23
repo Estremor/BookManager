@@ -60,7 +60,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
                 _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Create)}",Newtonsoft.Json.JsonConvert.SerializeObject(book));
 
@@ -83,7 +83,7 @@ namespace BookManager.Application
                 var result = _bookDomainServ.Delete(id);
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
                 _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Delete)}",id);
                 return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
@@ -106,7 +106,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
                 _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Get)}",id);
                 return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
@@ -150,7 +150,7 @@ namespace BookManager.Application
                 var result = _bookDomainServ.Update(entity);
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
 
                 _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Update)}",Newtonsoft.Json.JsonConvert.SerializeObject(book));

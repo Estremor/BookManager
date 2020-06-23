@@ -59,7 +59,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
 
                 return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
@@ -82,7 +82,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
 
                 return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
@@ -105,7 +105,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
                 return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
             }
@@ -128,7 +128,7 @@ namespace BookManager.Application
 
                 if (!result.isSuccesfull)
                 {
-                    return new { isSuccesfull = false, result.Messges };
+                    return new { isSuccesfull = false, result.mesagess };
                 }
 
                 return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
