@@ -1,0 +1,4 @@
+2020-06-23 00:29:43,056  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2020-06-23 00:29:43,065  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2020-06-23 00:29:43,066  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: D:\developers\BookManager\BookManager
+ 

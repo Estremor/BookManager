@@ -81,12 +81,18 @@
             Autommaper
             </summary>
         </member>
-        <member name="M:BookManager.Application.BookAppService.#ctor(BookManager.Domain.Services.Contracts.IBookDomainService,AutoMapper.IMapper)">
+        <member name="F:BookManager.Application.BookAppService._logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.#ctor(BookManager.Domain.Services.Contracts.IBookDomainService,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger{BookManager.Application.BookAppService})">
             <summary>
             Inicia una nueva instancia de la clase
             </summary>
             <param name="bookDomainServ"></param>
             <param name="mapper"></param>
+            <param name="logger"></param>
         </member>
         <member name="M:BookManager.Application.BookAppService.Create(BookManager.DTOs.BookDTO)">
             <summary>
@@ -687,6 +693,111 @@
             Registra Las dependencias, como se resuelven
             </summary>
             <param name="services"></param>
+        </member>
+        <member name="T:BookManager.Domain.Entities.Author">
+            <summary>
+            autor
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Entities.Author.#ctor">
+            <summary>
+            instamcia la clase
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Author.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Author.Name">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Author.LastName">
+            <summary>
+            Apellido
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Author.BirthDate">
+            <summary>
+            Edad
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Author.Book">
+            <summary>
+            Relations
+            </summary>
+        </member>
+        <member name="T:BookManager.Domain.Entities.Book">
+            <summary>
+            Libro
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.Name">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.AuthorId">
+            <summary>
+            Author
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.CategoryId">
+            <summary>
+            Categoria
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.Isbn">
+            <summary>
+            Code libro
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.Author">
+            <summary>
+            relacion
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Book.Category">
+            <summary>
+            Relacion
+            </summary>
+        </member>
+        <member name="T:BookManager.Domain.Entities.Category">
+            <summary>
+            Categoria
+            </summary>
+        </member>
+        <member name="M:BookManager.Domain.Entities.Category.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Category.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Category.Name">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Category.Description">
+            <summary>
+            Descripcion
+            </summary>
+        </member>
+        <member name="P:BookManager.Domain.Entities.Category.Book">
+            <summary>
+            Relacion
+            </summary>
         </member>
         <member name="T:BookManager.Domain.Services.AuthorDomainService">
             <summary>

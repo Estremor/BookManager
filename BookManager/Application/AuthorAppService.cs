@@ -55,7 +55,14 @@ namespace BookManager.Application
             try
             {
                 Author entity = _mapper.Map<Author>(author);
-                return _authorServ.Create(entity);
+                var result = _authorServ.Create(entity);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+
+                return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -71,7 +78,14 @@ namespace BookManager.Application
         {
             try
             {
-                return _authorServ.Delete(id);
+                var result = _authorServ.Delete(id);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+
+                return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -87,7 +101,13 @@ namespace BookManager.Application
         {
             try
             {
-                return _authorServ.Get(id);
+                var result = _authorServ.Get(id);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+                return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -104,7 +124,14 @@ namespace BookManager.Application
             try
             {
                 Author entity = _mapper.Map<Author>(author);
-                return _authorServ.Update(entity);
+                var result = _authorServ.Update(entity);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+
+                return new { isSuccesfull = true, Result = _mapper.Map<AuthorDTO>(result.Result) };
             }
             catch (Exception e)
             {

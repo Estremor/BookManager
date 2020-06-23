@@ -3,8 +3,10 @@ using BookManager.Application.Contracts;
 using BookManager.Domain.Entities;
 using BookManager.Domain.Services.Contracts;
 using BookManager.DTOs;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+//using ILogger = log4net.Core.ILogger;
 
 namespace BookManager.Application
 {
@@ -22,6 +24,10 @@ namespace BookManager.Application
         /// Autommaper
         /// </summary>
         private readonly IMapper _mapper;
+        /// <summary>
+        /// Logger
+        /// </summary>
+        private readonly ILogger _logger;
         #endregion
 
         #region C'tor
@@ -30,10 +36,12 @@ namespace BookManager.Application
         /// </summary>
         /// <param name="bookDomainServ"></param>
         /// <param name="mapper"></param>
-        public BookAppService(IBookDomainService bookDomainServ, IMapper mapper)
+        /// <param name="logger"></param>
+        public BookAppService(IBookDomainService bookDomainServ, IMapper mapper, ILogger<BookAppService> logger)
         {
             _bookDomainServ = bookDomainServ;
             _mapper = mapper;
+            _logger = logger;
         }
         #endregion
 
@@ -48,7 +56,15 @@ namespace BookManager.Application
             try
             {
                 Book entity = _mapper.Map<Book>(book);
-                return _bookDomainServ.Create(entity);
+                var result = _bookDomainServ.Create(entity);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+                _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Create)}",Newtonsoft.Json.JsonConvert.SerializeObject(book));
+
+                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -64,7 +80,13 @@ namespace BookManager.Application
         {
             try
             {
-                return _bookDomainServ.Delete(id);
+                var result = _bookDomainServ.Delete(id);
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+                _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Delete)}",id);
+                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -80,7 +102,14 @@ namespace BookManager.Application
         {
             try
             {
-                return _bookDomainServ.Get(id);
+                var result = _bookDomainServ.Get(id);
+
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+                _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Get)}",id);
+                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -123,7 +152,10 @@ namespace BookManager.Application
                 {
                     return new { isSuccesfull = false, result.Messges };
                 }
-                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result) };
+
+                _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Update)}",Newtonsoft.Json.JsonConvert.SerializeObject(book));
+
+                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result.Result) };
             }
             catch (Exception e)
             {
@@ -143,6 +175,7 @@ namespace BookManager.Application
             try
             {
                 var result = _bookDomainServ.FilterBook(name, category, author);
+                _logger.LogInformation($"{nameof(BookAppService)}, {nameof(BookAppService.Filter)}",name,category,author);
                 return new { isSuccesfull = true, Result = _mapper.Map<IEnumerable<BookDetailDTO>>(result.Result) };
             }
             catch (Exception e)

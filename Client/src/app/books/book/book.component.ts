@@ -38,6 +38,7 @@ export class BookComponent implements OnInit {
   }
   
   onSubmit(form: NgForm) {
+    debugger
     if (form.value.identificador == null) {
       form.value.identificador = 0;
       form.value.author = parseInt(form.value.author);
