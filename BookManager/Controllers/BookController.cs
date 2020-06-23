@@ -68,6 +68,17 @@ namespace BookManager.Controllers
         [HttpGet]
         [Route(nameof(BookController.List))]
         public ActionResult<dynamic> List() => _bookAppServ.ListBooks();
+
+        /// <summary>
+        /// Busca por los filtros enviados
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route(nameof(BookController.FindFilter))]
+        public ActionResult<dynamic> FindFilter(string name, string categori, string autor)
+        {
+            return _bookAppServ.Filter(name, categori, autor);
+        }
         #endregion
     }
 }

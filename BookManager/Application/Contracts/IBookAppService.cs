@@ -10,13 +10,13 @@ namespace BookManager.Application.Contracts
         /// <summary>
         /// Crea un nuevo Book
         /// </summary>
-        /// <param name="Book"></param>
+        /// <param name="book"></param>
         /// <returns></returns>
         dynamic Create(BookDTO book);
         /// <summary>
         /// Actualiza un autor
         /// </summary>
-        /// <param name="Book"></param>
+        /// <param name="book"></param>
         /// <returns></returns>
         dynamic Update(BookDTO book);
         /// <summary>
@@ -36,5 +36,13 @@ namespace BookManager.Application.Contracts
         /// </summary>
         /// <returns></returns>
         dynamic ListBooks();
+        /// <summary>
+        /// Filtra libros por author nombre de libro autor
+        /// </summary>
+        /// <param name="name">Nombre del libro</param>
+        /// <param name="category"></param>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        dynamic Filter(string name, string category, string author);
     }
 }

@@ -36,5 +36,13 @@ namespace BookManager.Domain.Services.Contracts
         /// </summary>
         /// <returns></returns>
         dynamic ListBooks();
+        /// <summary>
+        /// Filtra libros segun las condiciones
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="category"></param>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        dynamic FilterBook(string name, string category, string author);
     }
 }

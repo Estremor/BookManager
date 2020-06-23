@@ -5,6 +5,7 @@ using BookManager.Domain.Entities;
 using BookManager.Domain.Services.Contracts;
 using BookManager.DTOs;
 using System;
+using System.Collections.Generic;
 
 namespace BookManager.Application
 {
@@ -101,7 +102,7 @@ namespace BookManager.Application
         {
             try
             {
-                return new { isSuccesfull = true, Result = _repository.List() };
+                return new { isSuccesfull = true, Result = _mapper.Map<IEnumerable<CategoryDTO>>(_repository.List()) };
             }
             catch (Exception e)
             {

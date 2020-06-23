@@ -1,0 +1,6 @@
+<table class="table table-striped table-dark">
+    <tr *ngFor="let aut of authorService.authorList">
+        <td (click)="selectAuthor(aut)" >{{aut.nombre}} -- {{aut.apellido}}  {{aut.fechaNacimiento}} </td>
+        <td> <button (click)="onDelete(aut.identificador)" class="btn btn-sm btn-outline-danger">X</button> </td>
+    </tr>
+</table>

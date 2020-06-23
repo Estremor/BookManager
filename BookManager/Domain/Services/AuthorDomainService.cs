@@ -1,6 +1,7 @@
 ﻿using BookManager.DataPersistence.Repository.Generic;
 using BookManager.Domain.Entities;
 using BookManager.Domain.Services.Contracts;
+using System;
 using System.Linq;
 
 namespace BookManager.Domain.Services
@@ -42,6 +43,14 @@ namespace BookManager.Domain.Services
             if (string.IsNullOrWhiteSpace(author.Name))
             {
                 return new { isSuccesfull = false, mesagess = $"El Nombre no puede ser vacio " };
+            }
+
+            if (author.BirthDate.HasValue)
+            {
+                if (author.BirthDate.Value.Year >= DateTime.Now.Year)
+                {
+                    return new { isSuccesfull = false, mesagess = $"La fecha de nacimiento no es valida" };
+                }
             }
 
             Author result = _authorRepo.Create(author);
@@ -88,7 +97,7 @@ namespace BookManager.Domain.Services
         /// Actualiza los datos de un author
         /// </summary>
         /// <param name="author"></param>
-        /// <returns></returns>
+        /// <returns></returns> 
         public dynamic Update(Author author)
         {
             if (author is null)

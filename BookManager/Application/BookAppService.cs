@@ -4,6 +4,7 @@ using BookManager.Domain.Entities;
 using BookManager.Domain.Services.Contracts;
 using BookManager.DTOs;
 using System;
+using System.Collections.Generic;
 
 namespace BookManager.Application
 {
@@ -94,7 +95,13 @@ namespace BookManager.Application
         {
             try
             {
-                return _bookDomainServ.ListBooks();
+                var result = _bookDomainServ.ListBooks();
+                if (result.isSuccesfull)
+                {
+                    return new { isSuccesfull = true, Result = _mapper.Map<IEnumerable<BookDTO>>(result.Result) };
+                }
+
+                return new { isSuccesfull = false, Messges = result.Messges };
             }
             catch (Exception e)
             {
@@ -111,7 +118,32 @@ namespace BookManager.Application
             try
             {
                 Book entity = _mapper.Map<Book>(book);
-                return _bookDomainServ.Update(entity);
+                var result = _bookDomainServ.Update(entity);
+                if (!result.isSuccesfull)
+                {
+                    return new { isSuccesfull = false, result.Messges };
+                }
+                return new { isSuccesfull = true, Result = _mapper.Map<BookDTO>(result) };
+            }
+            catch (Exception e)
+            {
+                return new { isSuccesfull = false, Messges = e.Message };
+            }
+        }
+
+        /// <summary>
+        /// Filtra libros por author nombre de libro autor
+        /// </summary>
+        /// <param name="name">Nombre del libro</param>
+        /// <param name="category"></param>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        public dynamic Filter(string name, string category, string author)
+        {
+            try
+            {
+                var result = _bookDomainServ.FilterBook(name, category, author);
+                return new { isSuccesfull = true, Result = _mapper.Map<IEnumerable<BookDetailDTO>>(result.Result) };
             }
             catch (Exception e)
             {

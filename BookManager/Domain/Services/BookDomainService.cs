@@ -216,7 +216,7 @@ namespace BookManager.Domain.Services
             entity.CategoryId = book.CategoryId;
             entity.AuthorId = book.AuthorId;
 
-            var result = _bookRepo.Update(book);
+            var result = _bookRepo.Update(entity);
             int coun = _bookRepo.SaveChanges();
 
             if (coun == 0)
@@ -241,6 +241,27 @@ namespace BookManager.Domain.Services
                 .Include(x => x.Author)
                 .Include(x => x.Category).ToList()
             };
+        }
+
+        /// <summary>
+        /// Filtra libros segun las condiciones
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="category"></param>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        public dynamic FilterBook(string name, string category, string author)
+        {
+            var result = _bookRepo.Entity.Include(x => x.Author).Include(x => x.Category).ToList();
+
+            if (!string.IsNullOrWhiteSpace(name))
+                result =  result.Where(x => name.Trim().Contains(x.Name))?.ToList();
+            if (!string.IsNullOrWhiteSpace(category) && category != "0")
+                result = result.Where(x => x.CategoryId == Convert.ToInt32(category))?.ToList();
+            if (!string.IsNullOrWhiteSpace(author) && author != "0")
+                result =  result.Where(x => x.AuthorId == Convert.ToInt32(author.Trim()))?.ToList();
+
+            return new { isSuccesfull = true, Result = result?.ToList() };
         }
 
         #endregion

@@ -32,6 +32,11 @@ namespace BookManager.Application.Contracts
         /// <param name="id"></param>
         /// <returns></returns>
         dynamic Get(int id);
+        /// <summary>
+        /// Lista Todos los autores
+        /// </summary>
+        /// <returns></returns>
+        dynamic List();
         #endregion
     }
 }

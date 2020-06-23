@@ -1,0 +1,56 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+<div class="row">
+    <div class="form-group col-md-12">
+        <label>Nombre </label>
+        <input name="name" #name="ngModel" [(ngModel)]="bookService.bookSearch.name" type="text"
+            class="form-control" />
+        <div class="validation-error" *ngIf="name.invalid && name.touched"> Campo nombre Requerido </div>
+    </div>
+
+    <div class="form-group col-md-12">
+        <div class="form-group">
+            <label>Categoria </label>
+
+            <select [(ngModel)]="bookService.bookSearch.categori" name="categori" #categori="ngModel"
+                class="form-control">
+                <option [ngValue]="0">Selecciona una opción</option>
+                <option [ngValue]="dato.identificador" *ngFor="let dato of categories">
+                    {{dato.nombre}} - {{dato.descripcion}}
+                </option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group col-md-12">
+        <div class="form-group">
+            <label>Authores </label>
+
+            <select [(ngModel)]="bookService.bookSearch.autor" name="autor" #autor="ngModel" class="form-control">
+                <option [ngValue]="0">Selecciona una opción</option>
+                <option [ngValue]="dato.identificador" *ngFor="let dato of authors">
+                    {{dato.nombre}} - {{dato.descripcion}}
+                </option>
+            </select>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-block"> Consultar</button>
+    </div>
+</div>
+</form>
+
+<div class="row">
+    <table class="table table-striped table-dark">
+        <tr>
+            <td>nombre</td><td>isbn</td> <td>autor</td><td>categoria</td>
+        </tr>
+        <tr *ngFor="let book of results">
+            <td>{{book.nombre}}</td><td>{{book.isbn}}</td> <td>{{book.autor}}</td><td>{{book.categoria}}</td>
+        </tr>
+    </table>
+</div>

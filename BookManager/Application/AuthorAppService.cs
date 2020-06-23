@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BookManager.Application.Contracts;
+using BookManager.DataPersistence.Repository.Generic;
 using BookManager.Domain.Entities;
 using BookManager.Domain.Services.Contracts;
 using BookManager.DTOs;
 using System;
+using System.Collections.Generic;
 
 namespace BookManager.Application
 {
@@ -18,6 +20,10 @@ namespace BookManager.Application
         /// </summary>
         private readonly IAuthorDomainService _authorServ;
         /// <summary>
+        /// Repositorio Generico de Author
+        /// </summary>
+        private readonly IRepository<Author> _repository;
+        /// <summary>
         /// Authommaper
         /// </summary>
         private readonly IMapper _mapper;
@@ -29,10 +35,12 @@ namespace BookManager.Application
         /// </summary>
         /// <param name="authorServ"></param>
         /// <param name="mapper"></param>
-        public AuthorAppService(IAuthorDomainService authorServ, IMapper mapper)
+        /// <param name="repository"></param>
+        public AuthorAppService(IAuthorDomainService authorServ, IMapper mapper, IRepository<Author> repository)
         {
             _authorServ = authorServ;
             _mapper = mapper;
+            _repository = repository;
         }
         #endregion
 
@@ -97,6 +105,21 @@ namespace BookManager.Application
             {
                 Author entity = _mapper.Map<Author>(author);
                 return _authorServ.Update(entity);
+            }
+            catch (Exception e)
+            {
+                return new { isSuccesfull = false, Messges = e.Message };
+            }
+        }
+        /// <summary>
+        /// Lista Todos los autores
+        /// </summary>
+        /// <returns></returns>
+        public dynamic List()
+        {
+            try
+            {
+                return new { isSuccesfull = true, Result = _mapper.Map<IEnumerable<AuthorDTO>>(_repository.List()) };
             }
             catch (Exception e)
             {

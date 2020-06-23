@@ -20,14 +20,24 @@ namespace BookManager.Automapper
                 .ForMember(dto => dto.Nombre, b => b.MapFrom(x => x.Name))
                 .ForMember(dto => dto.Category, b => b.MapFrom(x => x.CategoryId))
                 .ForMember(dto => dto.Isbn, b => b.MapFrom(x => x.Isbn))
-                .ForMember(dto => dto.Identificador, b => b.MapFrom(x => x.Id)); ;
+                .ForMember(dto => dto.Identificador, b => b.MapFrom(x => x.Id));
 
 
             CreateMap<BookDTO, Book>().ForMember(x => x.AuthorId, dto => dto.MapFrom(x => x.Author))
                 .ForMember(b => b.Name, dto => dto.MapFrom(x => x.Nombre))
                 .ForMember(b => b.CategoryId, dto => dto.MapFrom(x => x.Category))
                 .ForMember(b => b.Isbn, dto => dto.MapFrom(x => x.Isbn))
-                .ForMember(b => b.Id, dto => dto.MapFrom(x => x.Identificador));
+                .ForMember(b => b.Id, dto => dto.MapFrom(x => x.Identificador))
+                .ForMember(b => b.Author, dto => dto.Ignore())
+                .ForMember(b => b.Category, dto => dto.Ignore());
+
+            CreateMap<Book, BookDetailDTO>()
+                .ForMember(dto => dto.Nombre, b => b.MapFrom(x => x.Name))
+                .ForMember(dto => dto.ISBN, b => b.MapFrom(x => x.Isbn))
+                .ForMember(dto => dto.Autor, b => b.MapFrom(x => x.Author.Name))
+                .ForMember(dto => dto.Categoria, b => b.MapFrom(x => x.Category.Name));
+
+
             #endregion
 
             #region Author

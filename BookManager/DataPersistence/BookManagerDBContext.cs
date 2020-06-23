@@ -24,7 +24,7 @@ namespace BookManager.DataPersistence
         {
             DbSettings = dbSettings;
             DbSettings.ConnectionString = DbSettings.ConnectionString;
-            var result = Database.EnsureCreated();
+            Database.EnsureCreated();
         }
         #endregion
 

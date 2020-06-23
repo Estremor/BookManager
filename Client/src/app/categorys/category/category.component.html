@@ -1,0 +1,29 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+    <input type="hidden" name="identificador"  #identificador="ngModel" [(ngModel)]="service.formData.identificador">
+
+  <div class="form-group">
+    <label>Nombre Categoria</label>
+    <input
+      name="nombre"
+      #nombre="ngModel"
+      [(ngModel)]="service.formData.nombre"
+      type="text"
+      class="form-control" required />
+    <div class="validation-error" *ngIf="nombre.invalid && nombre.touched" > Campo nombre Requerido </div>
+  </div>
+
+  <div class="form-group">
+    <label>Descripcion Categoria</label>
+    <input
+      name="descripcion"
+      #descripcion="ngModel"
+      [(ngModel)]="service.formData.descripcion"
+      type="text"
+      class="form-control" required />
+    <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched" > Campo Descripcion Requerido </div>
+  </div>
+  <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block"> Enviar</button>
+  </div>
+</form>

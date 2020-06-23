@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookManager.Application.Contracts;
 using BookManager.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -66,6 +67,13 @@ namespace BookManager.Controllers
         [HttpGet]
         [Route(nameof(AuthorController.Get))]
         public ActionResult<dynamic> Get(int id) => _authorAppServ.Get(id);
+        /// <summary>
+        /// Lista Todos los autores
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route(nameof(AuthorController.List))]
+        public ActionResult<dynamic> List() => _authorAppServ.List();
         #endregion
     }
 }

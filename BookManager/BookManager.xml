@@ -14,17 +14,23 @@
             Servicio de dominio de author
             </summary>
         </member>
+        <member name="F:BookManager.Application.AuthorAppService._repository">
+            <summary>
+            Repositorio Generico de Author
+            </summary>
+        </member>
         <member name="F:BookManager.Application.AuthorAppService._mapper">
             <summary>
             Authommaper
             </summary>
         </member>
-        <member name="M:BookManager.Application.AuthorAppService.#ctor(BookManager.Domain.Services.Contracts.IAuthorDomainService,AutoMapper.IMapper)">
+        <member name="M:BookManager.Application.AuthorAppService.#ctor(BookManager.Domain.Services.Contracts.IAuthorDomainService,AutoMapper.IMapper,BookManager.DataPersistence.Repository.Generic.IRepository{BookManager.Domain.Entities.Author})">
             <summary>
             Inicia una instancia de la clase
             </summary>
             <param name="authorServ"></param>
             <param name="mapper"></param>
+            <param name="repository"></param>
         </member>
         <member name="M:BookManager.Application.AuthorAppService.Create(BookManager.DTOs.AuthorDTO)">
             <summary>
@@ -52,6 +58,12 @@
             Actualiza un autor
             </summary>
             <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.AuthorAppService.List">
+            <summary>
+            Lista Todos los autores
+            </summary>
             <returns></returns>
         </member>
         <member name="T:BookManager.Application.BookAppService">
@@ -108,6 +120,15 @@
             Actualiza
             </summary>
             <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.BookAppService.Filter(System.String,System.String,System.String)">
+            <summary>
+            Filtra libros por author nombre de libro autor
+            </summary>
+            <param name="name">Nombre del libro</param>
+            <param name="category"></param>
+            <param name="author"></param>
             <returns></returns>
         </member>
         <member name="T:BookManager.Application.CategoryAppService">
@@ -205,6 +226,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:BookManager.Application.Contracts.IAuthorAppService.List">
+            <summary>
+            Lista Todos los autores
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:BookManager.Application.Contracts.IBookAppService">
             <summary>
             Servicio de aplicacion de libro
@@ -214,14 +241,14 @@
             <summary>
             Crea un nuevo Book
             </summary>
-            <param name="Book"></param>
+            <param name="book"></param>
             <returns></returns>
         </member>
         <member name="M:BookManager.Application.Contracts.IBookAppService.Update(BookManager.DTOs.BookDTO)">
             <summary>
             Actualiza un autor
             </summary>
-            <param name="Book"></param>
+            <param name="book"></param>
             <returns></returns>
         </member>
         <member name="M:BookManager.Application.Contracts.IBookAppService.Delete(System.Int32)">
@@ -242,6 +269,15 @@
             <summary>
             Lista Libros
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Application.Contracts.IBookAppService.Filter(System.String,System.String,System.String)">
+            <summary>
+            Filtra libros por author nombre de libro autor
+            </summary>
+            <param name="name">Nombre del libro</param>
+            <param name="category"></param>
+            <param name="author"></param>
             <returns></returns>
         </member>
         <member name="T:BookManager.Application.Contracts.ICategoryAppService">
@@ -337,6 +373,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:BookManager.Controllers.AuthorController.List">
+            <summary>
+            Lista Todos los autores
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:BookManager.Controllers.BookController">
             <summary>
             Servicio de book
@@ -387,6 +429,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:BookManager.Controllers.BookController.FindFilter(System.String,System.String,System.String)">
+            <summary>
+            Busca por los filtros enviados
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:BookManager.Controllers.CategoryController">
             <summary>
             servicios de category
@@ -434,6 +482,17 @@
         <member name="M:BookManager.Controllers.CategoryController.List">
             <summary>
             Lista todas las categorias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BookManager.Controllers.WeatherForecastController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BookManager.Controllers.WeatherForecastController.Token">
+            <summary>
+            
             </summary>
             <returns></returns>
         </member>
@@ -518,12 +577,6 @@
             Contexto de Datos
             </summary>
         </member>
-        <member name="M:BookManager.DataPersistence.Repository.Generic.IRepository.Initialize(Microsoft.EntityFrameworkCore.DbContext)">
-            <summary>
-            Inicia el contexto de Datos
-            </summary>
-            <param name="context"></param>
-        </member>
         <member name="T:BookManager.DataPersistence.Repository.Generic.IRepository`1">
             <summary>
             define el comportamiento del repo
@@ -589,12 +642,6 @@
             <summary>
             Inicia el repo
             </summary>
-        </member>
-        <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Initialize(Microsoft.EntityFrameworkCore.DbContext)">
-            <summary>
-            Inicia el repo con el contexto
-            </summary>
-            <param name="context"></param>
         </member>
         <member name="M:BookManager.DataPersistence.Repository.Generic.Repository`1.Create(`0)">
             <summary>
@@ -676,7 +723,7 @@
             Actualiza los datos de un author
             </summary>
             <param name="author"></param>
-            <returns></returns>
+            <returns></returns> 
         </member>
         <member name="M:BookManager.Domain.Services.AuthorDomainService.Get(System.Int32)">
             <summary>
@@ -745,6 +792,15 @@
             <summary>
             Lista Los libros Con sus categorias
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookManager.Domain.Services.BookDomainService.FilterBook(System.String,System.String,System.String)">
+            <summary>
+            Filtra libros segun las condiciones
+            </summary>
+            <param name="name"></param>
+            <param name="category"></param>
+            <param name="author"></param>
             <returns></returns>
         </member>
         <member name="T:BookManager.Domain.Services.CategoryDomainService">
@@ -863,6 +919,15 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:BookManager.Domain.Services.Contracts.IBookDomainService.FilterBook(System.String,System.String,System.String)">
+            <summary>
+            Filtra libros segun las condiciones
+            </summary>
+            <param name="name"></param>
+            <param name="category"></param>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
         <member name="T:BookManager.Domain.Services.Contracts.ICategoryDomainService">
             <summary>
             Contrato servicio de dominio para Category
@@ -921,6 +986,31 @@
             fecha de Nacimiento (opcional) => si se desconoce
             </summary>
         </member>
+        <member name="T:BookManager.DTOs.BookDetailDTO">
+            <summary>
+            Objec book con detalle
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDetailDTO.Nombre">
+            <summary>
+            Nombre del Libro
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDetailDTO.ISBN">
+            <summary>
+            ISBN CODE
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDetailDTO.Autor">
+            <summary>
+            autor del libro
+            </summary>
+        </member>
+        <member name="P:BookManager.DTOs.BookDetailDTO.Categoria">
+            <summary>
+            Categoria del libro
+            </summary>
+        </member>
         <member name="T:BookManager.DTOs.BookDTO">
             <summary>
             encapsula los datos de un libro
@@ -971,6 +1061,24 @@
             <summary>
             Descripcion
             </summary>
+        </member>
+        <member name="T:BookManager.Program">
+            <summary>
+            Inic Class
+            </summary>
+        </member>
+        <member name="M:BookManager.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:BookManager.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="T:BookManager.Startup">
             <summary>

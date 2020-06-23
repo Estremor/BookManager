@@ -1,0 +1,6 @@
+<table class="table table-striped table-dark">
+    <tr *ngFor="let book of bookService.bookList">
+        <td (click)="selectBook(book)" >{{book.nombre}} -- {{book.isbn}} </td>
+        <td> <button (click)="onDelete(book.identificador)" class="btn btn-sm btn-outline-danger">X</button> </td>
+    </tr>
+</table>

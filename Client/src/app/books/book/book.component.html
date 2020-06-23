@@ -1,0 +1,55 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+    <input type="hidden" name="identificador"  #identificador="ngModel" [(ngModel)]="bookService.bookForm.identificador">
+
+  <div class="form-group">
+    <label>Nombre </label>
+    <input
+      name="nombre"
+      #nombre="ngModel"
+      [(ngModel)]="bookService.bookForm.nombre"
+      type="text"
+      class="form-control" required />
+    <div class="validation-error" *ngIf="nombre.invalid && nombre.touched"> Campo nombre Requerido </div>
+  </div>
+
+  <div class="form-group">
+    <label>Autor </label>
+    <input
+      name="author"
+      #author="ngModel"
+      [(ngModel)]="bookService.bookForm.author"
+      type="text"
+      class="form-control" />
+    <div class="validation-error" *ngIf="author.invalid && author.touched" >  </div>
+  </div>
+  
+  <div class="form-group">
+    <label>Categoria </label>
+
+      <select [(ngModel)]="bookService.bookForm.category" name="category" #category="ngModel" class="form-control">
+        <option [ngValue]="0">Selecciona una opción</option>
+        <option [ngValue]="dato.identificador" *ngFor="let dato of categories">
+          {{dato.nombre}} - {{dato.descripcion}}
+        </option>
+    </select>
+
+  </div>
+
+  <div class="form-group">
+    <label>ISBN</label>
+    <input
+      name="isbn"
+      #isbn="ngModel"
+      [(ngModel)]="bookService.bookForm.isbn" 
+      
+      type="text" 
+      class="form-control" />
+    <div class="validation-error" *ngIf="isbn.invalid && isbn.touched"> ISBN Requerido</div>
+  </div>
+
+  <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block"> Enviar</button>
+  </div>
+
+</form>
