@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Src", "2- Src", "{51EB05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager", "BookManager\BookManager.csproj", "{9CCB1FE1-368C-4AE7-9923-CEF9DEB25E2E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EF2F8232-DB6C-4615-8145-479548220FC0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookManagerDB", "BookManagerDB\BookManagerDB.sqlproj", "{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +23,20 @@ Global
 		{9CCB1FE1-368C-4AE7-9923-CEF9DEB25E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CCB1FE1-368C-4AE7-9923-CEF9DEB25E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CCB1FE1-368C-4AE7-9923-CEF9DEB25E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9CCB1FE1-368C-4AE7-9923-CEF9DEB25E2E} = {51EB0531-220F-43DF-86BB-FCFC9388C283}
+		{EF2F8232-DB6C-4615-8145-479548220FC0} = {20560B96-21A8-45FE-8234-59FEC8968D60}
+		{7A34FE54-C0CA-435C-AFEA-8C636B1DC2B7} = {EF2F8232-DB6C-4615-8145-479548220FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7326893D-C155-4EC6-ADB1-13FD4172566A}
