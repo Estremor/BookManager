@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/shared/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
-import { Book, IRequestResult, Category } from 'src/app/shared/category.model';
+import { Book, IRequestResult, Category, Author } from 'src/app/shared/category.model';
 
 @Component({
   selector: 'app-book',
@@ -14,13 +14,20 @@ export class BookComponent implements OnInit {
   constructor(public bookService: BookService, private notification: ToastrService) { }
 
   categories: Category[];
+  authors: Author[];
 
   ngOnInit(): void {
+
     this.resetForm();
+
     this.bookService.getCategories().subscribe((res : IRequestResult<Category[]>) =>{
-      debugger
       this.categories = res.result;  
     });
+
+    this.bookService.getAuthor().subscribe((res : IRequestResult<Author[]>) => {
+      this.authors = res.result;
+    });
+
   }
 
 
@@ -30,7 +37,7 @@ export class BookComponent implements OnInit {
 
     this.bookService.bookForm = {
       nombre : '',
-      author: null,
+      author: 0,
       category:0,
       identificador:null,
       isbn:''

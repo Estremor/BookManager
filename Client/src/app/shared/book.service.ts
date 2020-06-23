@@ -50,5 +50,9 @@ export class BookService {
   searchBook(url: string){
     return this.http.get(this.rootUrl+ '/Book/FindFilter?'+url);
   }
+  
+  getAuthor(){
+    return this.http.get(this.rootUrl+'/Author/List');
+  }
 
 }
